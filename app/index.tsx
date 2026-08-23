@@ -7,7 +7,7 @@ import {
   Text,
 } from 'react-native';
 import { AiResult } from '../components/AiResult';
-import { AppHeader } from '../components/AppHeader';
+
 import { HeroBanner } from '../components/HeroBanner';
 import { MessageForm } from '../components/MessageForm';
 import { generateAiMessage } from '../services/aiService';
@@ -72,8 +72,6 @@ export default function Index() {
         keyboardShouldPersistTaps='handled'
         showsVerticalScrollIndicator={false}
       >
-        <AppHeader />
-
         <HeroBanner />
 
         <MessageForm
