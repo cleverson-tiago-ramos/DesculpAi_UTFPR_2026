@@ -11,14 +11,15 @@ export async function generateAiMessage(
   request: MessageRequest,
   provider: AiProvider = 'gemini',
 ): Promise<string> {
-  const apiKey =
+  const apiKey = (
     provider === 'gemini'
       ? process.env.EXPO_PUBLIC_GEMINI_API_KEY
-      : process.env.EXPO_PUBLIC_OPENAI_API_KEY;
+      : process.env.EXPO_PUBLIC_OPENAI_API_KEY
+  )?.trim();
 
   if (!apiKey) {
     throw new Error(
-      `A chave da ${provider.toUpperCase()} não foi configurada.`,
+      `A chave da API ${provider.toUpperCase()} não foi configurada.`,
     );
   }
 
@@ -66,7 +67,7 @@ Entregue somente a mensagem pronta para ser enviada.
       temperature: 0.8,
     });
 
-    const text = result.choices[0]?.message?.content?.trim();
+    const text = result.choices?.[0]?.message?.content?.trim();
 
     if (!text) {
       throw new Error('A Inteligência Artificial retornou uma resposta vazia.');

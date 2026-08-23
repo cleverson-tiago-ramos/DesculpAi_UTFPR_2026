@@ -61,7 +61,7 @@ export function MessageForm({
       <TextInput
         value={recipient}
         onChangeText={onRecipientChange}
-        placeholder='Ex.: meu chefe, professora ou amigo'
+        placeholder='Ex.: meu chefe, Minha mulher..'
         placeholderTextColor='#9993A6'
         maxLength={60}
         style={styles.input}

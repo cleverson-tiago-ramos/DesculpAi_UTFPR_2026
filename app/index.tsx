@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 import { AiResult } from '../components/AiResult';
 
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { HeroBanner } from '../components/HeroBanner';
 import { MessageForm } from '../components/MessageForm';
+import { useResponses } from '../contexts/ResponsesContext';
 import { generateAiMessage } from '../services/aiService';
 import { styles } from '../styles/indexStyles';
 import { Tone } from '../types/message';
-
 export default function Index() {
   const [situation, setSituation] = useState('');
   const [recipient, setRecipient] = useState('');
@@ -21,7 +22,8 @@ export default function Index() {
   const [tone, setTone] = useState<Tone>('Convincente');
   const [answer, setAnswer] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const tabBarHeight = useBottomTabBarHeight();
+  const { addResponse } = useResponses();
   const canGenerate =
     situation.trim().length >= 5 && recipient.trim().length >= 2 && !loading;
 
@@ -50,6 +52,12 @@ export default function Index() {
       );
 
       setAnswer(generatedAnswer);
+      await addResponse({
+        situation: situation.trim(),
+        recipient: recipient.trim(),
+        tone,
+        message: generatedAnswer,
+      });
     } catch (error) {
       Alert.alert(
         'Erro ao gerar',
@@ -68,7 +76,12 @@ export default function Index() {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
       <ScrollView
-        contentContainerStyle={styles.container}
+        contentContainerStyle={[
+          styles.container,
+          {
+            paddingBottom: tabBarHeight + 30,
+          },
+        ]}
         keyboardShouldPersistTaps='handled'
         showsVerticalScrollIndicator={false}
       >
