@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "DesculpAí",
+    "description": "Trabalho final da disciplina de React Native: aplicativo desenvolvido com Expo, TypeScript e integração com a API Gemini para gerar mensagens personalizadas.",
     "slug": "desculpai-utfpr-2026",
     "version": "1.0.0",
     "orientation": "portrait",
