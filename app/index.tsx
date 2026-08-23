@@ -39,12 +39,15 @@ export default function Index() {
     setAnswer('');
 
     try {
-      const generatedAnswer = await generateAiMessage({
-        event: situation.trim(),
-        recipient: recipient.trim(),
-        details: details.trim(),
-        tone,
-      });
+      const generatedAnswer = await generateAiMessage(
+        {
+          event: situation.trim(),
+          recipient: recipient.trim(),
+          details: details.trim(),
+          tone,
+        },
+        'gemini',
+      );
 
       setAnswer(generatedAnswer);
     } catch (error) {
