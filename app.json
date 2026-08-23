@@ -9,33 +9,26 @@
     "scheme": "desculpaiutfpr2026",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.cleverson.desculpai"
     },
-
     "android": {
       "package": "com.cleverson.desculpai",
-
       "adaptiveIcon": {
         "backgroundColor": "#6848F5",
         "foregroundImage": "./assets/images/splash-icon.png",
         "monochromeImage": "./assets/images/splash-icon.png"
       },
-
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
-
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-
     "plugins": [
       "expo-router",
-
       [
         "expo-splash-screen",
         {
@@ -43,7 +36,6 @@
           "imageWidth": 180,
           "resizeMode": "contain",
           "backgroundColor": "#6848F5",
-
           "dark": {
             "image": "./assets/images/splash-icon.png",
             "backgroundColor": "#292438"
@@ -51,10 +43,15 @@
         }
       ]
     ],
-
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "5c9284db-9c8f-4525-82f2-a947a8eb19e3"
+      }
     }
   }
 }
