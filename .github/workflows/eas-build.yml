@@ -32,7 +32,7 @@ jobs:
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
+          token: ${{ secrets.EXPO_TOKEN_DESCULPAAI }}
 
       - name: Verificar projeto Expo
         run: eas whoami
